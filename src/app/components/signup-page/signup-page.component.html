@@ -1,0 +1,20 @@
+<div class="container">
+    <h2>
+        {{ this.scheme.projectTitle }}
+    </h2>
+    <div *ngFor="let section of this.scheme.sections">
+        <h3>
+            {{ section.headline }}
+        </h3>
+        <div *ngFor="let block of section.blocks">
+            <container-element [ngSwitch]="block.type">
+                <app-richtext-block [payload]="block.payload" *ngSwitchCase="BLOCKTYPES.RichtextType"></app-richtext-block>
+                <app-form-input [payload]="block.payload" *ngSwitchCase="BLOCKTYPES.FormInputType"></app-form-input>
+
+                <div *ngSwitchDefault>
+                    <span>Unbekanntes Element</span>
+                </div>
+            </container-element>
+        </div>
+    </div>
+</div>

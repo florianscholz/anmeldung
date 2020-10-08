@@ -1,0 +1,9 @@
+<div class="form-group">
+    <label for="{{payload.name}}">
+        {{payload.label}}
+    <span *ngIf="payload.required">
+        &nbsp;*
+    </span>
+    </label>
+    <input type="text" [required]="payload.required ? true : false" class="form-control" id="{{payload.name}}" placeholder="{{payload.placeholder}}">
+</div>
