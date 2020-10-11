@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { RichtextBlockPayload } from './richtext-block.model';
+import { RichtextBlockPayload } from '@anmeldung/blocks';
 
 @Component({
   selector: 'app-richtext-block',

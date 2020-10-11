@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormInputBlockPayload } from './form-input.model';
+import { FormInputBlockPayload } from '@anmeldung/blocks';
 
 @Component({
   selector: 'app-form-input',

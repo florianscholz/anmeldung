@@ -1,26 +1,4 @@
-import { FormInputBlockPayload, FormInputBlockType } from './app/components/blocks/form-input/form-input.model';
-import { RichtextBlockPayload, RichtextBlockType } from './app/components/blocks/richtext-block/richtext-block.model';
-
-export interface FormBlock {
-    type: string;
-    payload: RichtextBlockPayload | FormInputBlockPayload;
-}
-
-export interface FormSection {
-    headline: string,
-    blocks: FormBlock[]
-}
-
-export interface FormScheme {
-    projectTitle: string,
-    sections: FormSection[],
-}
-
-export const BlockTypes = {
-    RichtextType: RichtextBlockType,
-    FormInputType: FormInputBlockType
-}
-
+import { FormScheme } from '@anmeldung/blocks';
 
 export let formScheme: FormScheme = {
     projectTitle: 'Schwarzbunt 2022',

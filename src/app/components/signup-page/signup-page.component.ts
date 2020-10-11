@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BlockTypes, formScheme } from 'src/schema';
+import { BlockTypes } from '@anmeldung/blocks';
+import { formScheme } from 'src/schema';
 
 @Component({
   selector: 'app-signup-page',
