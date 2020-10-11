@@ -1,9 +1,9 @@
-<div class="form-group">
+<div class="form-group" [formGroup]="this.myFormGroup">
     <label for="{{payload.name}}">
         {{payload.label}}
     <span *ngIf="payload.required">
         &nbsp;*
     </span>
     </label>
-    <input type="text" [required]="payload.required ? true : false" class="form-control" id="{{payload.name}}" placeholder="{{payload.placeholder}}">
+    <input type="text" [formControlName]="payload.name" [required]="payload.required ? true : false" class="form-control" id="{{payload.name}}" placeholder="{{payload.placeholder}}">
 </div>

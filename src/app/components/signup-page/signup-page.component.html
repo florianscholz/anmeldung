@@ -2,22 +2,27 @@
     <h2>
         {{ schemeAction.projectTitle }}
     </h2>
-    <div *ngFor="let section of schemeAction.scheme.sections">
-        <h3>
-            {{ section.headline }}
-        </h3>
-        <div *ngFor="let block of section.blocks">
-            <container-element [ngSwitch]="block.type">
-                <app-richtext-block [payload]="block.payload" *ngSwitchCase="BLOCKTYPES.RichtextType">
-                </app-richtext-block>
-                <app-form-input [payload]="block.payload" *ngSwitchCase="BLOCKTYPES.FormInputType"></app-form-input>
+    <form [formGroup]="this.myFormGroup" (ngSubmit)="submit()">
+        <div *ngFor="let section of schemeAction.scheme.sections">
+            <h3>
+                {{ section.headline }}
+            </h3>
+            <div *ngFor="let block of section.blocks">
+                <container-element [ngSwitch]="block.type">
+                    <app-richtext-block [payload]="block.payload" *ngSwitchCase="BLOCKTYPES.RichtextType">
+                    </app-richtext-block>
+                    <app-form-input [myFormGroup]="this.myFormGroup" [payload]="block.payload"
+                        *ngSwitchCase="BLOCKTYPES.FormInputType"></app-form-input>
 
-                <div *ngSwitchDefault>
-                    <span>Unbekanntes Element</span>
-                </div>
-            </container-element>
+                    <div *ngSwitchDefault>
+                        <span>Unbekanntes Element</span>
+                    </div>
+                </container-element>
+            </div>
         </div>
-    </div>
+        <button type="submit">Absenden</button>
+
+    </form>
 </div>
 
 <div class="container" *ngIf="onError$ | async">

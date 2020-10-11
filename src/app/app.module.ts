@@ -17,6 +17,7 @@ import { FormInputComponent } from './components/blocks/form-input/form-input.co
 import { EffectsModule } from '@ngrx/effects';
 import { FormsEffects } from './effects/forms.effects';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 export interface State {
@@ -36,6 +37,7 @@ export const reducers: ActionReducerMap<State> = {
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
