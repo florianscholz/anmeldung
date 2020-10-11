@@ -1,14 +1,15 @@
-<div class="container">
+<div class="container" *ngIf="onSuccess$ | async as schemeAction">
     <h2>
-        {{ this.scheme.projectTitle }}
+        {{ schemeAction.projectTitle }}
     </h2>
-    <div *ngFor="let section of this.scheme.sections">
+    <div *ngFor="let section of schemeAction.scheme.sections">
         <h3>
             {{ section.headline }}
         </h3>
         <div *ngFor="let block of section.blocks">
             <container-element [ngSwitch]="block.type">
-                <app-richtext-block [payload]="block.payload" *ngSwitchCase="BLOCKTYPES.RichtextType"></app-richtext-block>
+                <app-richtext-block [payload]="block.payload" *ngSwitchCase="BLOCKTYPES.RichtextType">
+                </app-richtext-block>
                 <app-form-input [payload]="block.payload" *ngSwitchCase="BLOCKTYPES.FormInputType"></app-form-input>
 
                 <div *ngSwitchDefault>
@@ -17,4 +18,9 @@
             </container-element>
         </div>
     </div>
+</div>
+
+<div class="container" *ngIf="onError$ | async">
+    <h1>Fehler...</h1>
+    <p>Ein Fehler ist aufgetreten...</p>
 </div>
