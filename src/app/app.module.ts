@@ -14,6 +14,10 @@ import { environment } from '../environments/environment';
 import { SignupPageComponent } from './components/signup-page/signup-page.component';
 import { RichtextBlockComponent } from './components/blocks/richtext-block/richtext-block.component';
 import { FormInputComponent } from './components/blocks/form-input/form-input.component';
+import { EffectsModule } from '@ngrx/effects';
+import { FormsEffects } from './effects/forms.effects';
+import { HttpClientModule } from '@angular/common/http';
+
 
 export interface State {
   registrations: RegistrationsState
@@ -33,9 +37,11 @@ export const reducers: ActionReducerMap<State> = {
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     NgbModule,
     StoreModule.forRoot(reducers, {}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([FormsEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
